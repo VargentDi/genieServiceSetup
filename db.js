@@ -17,7 +17,7 @@ const getUsers = (request, response) => {
 }
 
 
-
+getUsers()
 
 module.exports = {
   getUsers,
