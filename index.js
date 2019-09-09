@@ -13,7 +13,8 @@ app.use(
 )
 app.get('/', (request, response) => {
     console.log(' you requested')
-    db.getUsers(request,response)
+    let responseData=db.getUsers();
+    response.send(responseData)
 
 })
 app.listen(port, () => {

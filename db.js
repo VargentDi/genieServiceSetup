@@ -7,15 +7,16 @@ const pool = new Pool({
     password: 'Genie123',
     port: 5432,
 })
-const getUsers = (request, response) => {
+const getUsers = () => {
     console.log('you called the db fetch function')
     pool.query('SELECT * FROM public.users', (error, results) => {
         if (error) {
             console.log(error)
         }
         console.log(results)
-        response.status(200).json(results.rows)
+        
     })
+    return results;
 }
 
 
