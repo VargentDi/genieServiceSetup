@@ -11,7 +11,10 @@ app.use(
         extended: true,
     })
 )
-app.get('/', (request, response) => {
+app.get('/',(req,res)=>{
+    res.send("hello world!")
+})
+app.get('/rowData', (request, response) => {
     console.log(' you requested')
     let responseData=db.getUsers();
     response.send(responseData)
