@@ -8,15 +8,16 @@ const pool = new Pool({
     port: 5432,
 })
 const getUsers = () => {
+    var dataArr=[]
     console.log('you called the db fetch function')
     pool.query('SELECT * FROM public.users', (error, results) => {
         if (error) {
             console.log(error)
         }
-        console.log(results)
+        dataArr=results.rows
         
     })
-    return results;
+    return dataArr;
 }
 
 
