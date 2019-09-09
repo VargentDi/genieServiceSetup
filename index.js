@@ -14,10 +14,13 @@ app.use(
 app.get('/',(req,res)=>{
     res.send("hello world!")
 })
-app.get('/rowData', (request, response) => {
+app.get('/rowData', async (request, response) => {
     console.log(' you requested')
-    let responseData=db.getUsers();
-    response.send(responseData)
+    await db.getUsers()
+    .then(data=>{
+        response.send(data);
+    })
+   
 
 })
 app.listen(port, () => {
